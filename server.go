@@ -349,6 +349,7 @@ func cmdServe(args []string) error {
 	}
 
 	mux := http.NewServeMux()
+	mux.HandleFunc("GET /", handleIndex)
 	mux.HandleFunc("GET /health", handleHealth)
 	mux.HandleFunc("POST /api/backdrop", handleBackdrop)
 	mux.HandleFunc("GET /api/status/{id}", handleStatus)
